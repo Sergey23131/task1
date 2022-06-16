@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import fetch from 'node-fetch';
 
 
+
 @Injectable()
 export class NftService {
   constructor(@InjectModel(Nft) private nftRepository: typeof Nft) {}
@@ -21,8 +22,7 @@ export class NftService {
     const ownerAddr = "0xF5FFF32CF83A1A614e15F25Ce55B0c0A6b5F8F2c";
     const fetchURL = `${baseURL}?owner=${ownerAddr}`;
 
-// Make the request and print the formatted response:
-    // @ts-ignore
+
     fetch(fetchURL, requestOptions)
         .then(response => response.json())
         .then(response => JSON.stringify(response, null, 2))
