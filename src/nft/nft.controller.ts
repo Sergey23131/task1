@@ -9,7 +9,7 @@ import {Request} from "express";
 @ApiTags('Nft')
 @Controller('nft')
 export class NftController {
-  constructor(private nftService: NftService) {}
+  constructor(private nftService: RequestService) {}
 
   @ApiOperation({ summary: 'Get all nft' })
   @ApiResponse({ status: 201, type: [Nft] })
@@ -18,6 +18,6 @@ export class NftController {
   getAllNFT(@Body() nftDto: FindNftDto,
             @Req() request:Request) {
     console.log(request.body)
-    return this.nftService.getNFT();
+    return this.nftService.findAll();
   }
 }

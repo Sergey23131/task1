@@ -2,6 +2,7 @@ import { ExecutionContext, Injectable } from '@nestjs/common';
 import { Nft } from './nft.model';
 import { InjectModel } from '@nestjs/sequelize';
 import fetch from 'node-fetch';
+import {RequestService} from "../request/request.service";
 
 
 
@@ -9,7 +10,7 @@ import fetch from 'node-fetch';
 export class NftService {
   constructor(@InjectModel(Nft) private nftRepository: typeof Nft) {}
  // const apiKey = String(process.env.API_KEY);
-  async getNFT() {
+/*  async getNFT() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -27,7 +28,6 @@ export class NftService {
         .then(response => response.json())
         .then(response => JSON.stringify(response, null, 2))
         .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        .catch(error => console.log('error', error));*/
 
-  }
 }

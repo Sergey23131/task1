@@ -1,21 +1,28 @@
+import {HttpService} from '@nestjs/axios';
 import {
-  CanActivate,
-  ExecutionContext,
-  Injectable,
-  UnauthorizedException,
+    CanActivate,
+    ExecutionContext,
+    Injectable,
+    UnauthorizedException,
 } from '@nestjs/common';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable()
-export class RequestService implements CanActivate {
-    canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
-        const request = context.switchToHttp().getRequest();
-        try {
-           // console.log(request.body);
+export class RequestService {
 
-      return true;
-    } catch (err) {
-            throw new UnauthorizedException({message: 'user is not auth'})
-        }
-  }
+    constructor(private httpService: HttpService) {
+    }
+
+    findAll() {
+        // Replace with your Alchemy API key:
+        const apiKey = String(process.env.API_KEY);
+        const baseURL = `https://eth-mainnet.alchemyapi.io/v2/${apiKey}/getNFTs/`;
+// Replace with the wallet address you want to query:
+        const ownerAddr = "0xF5FFF32CF83A1A614e15F25Ce55B0c0A6b5F8F2c";
+        const fetchURL = `${baseURL}?owner=${ownerAddr}`;
+
+        console.log(this.httpService.get(fetchURL))
+        return this.httpService.get(fetchURL);
+    }
+
 }

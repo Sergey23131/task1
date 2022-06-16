@@ -4,9 +4,10 @@ import { NftModule } from './nft/nft.module';
 import { NftController } from './nft/nft.controller';
 import { RequestService } from './request/request.service';
 import { RequestModule } from './request/request.module';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [NftModule, RequestModule],
+  imports: [NftModule, RequestModule,HttpModule],
   controllers: [NftController],
   providers: [],
 })
