@@ -11,7 +11,7 @@ export class RequestService implements CanActivate {
     canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
         const request = context.switchToHttp().getRequest();
         try {
-            console.log(request);
+           // console.log(request.body);
 
       return true;
     } catch (err) {
