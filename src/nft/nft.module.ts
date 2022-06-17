@@ -10,7 +10,9 @@ import {SequelizeModule} from "@nestjs/sequelize";
     providers: [
         NftService,
         ],
-    imports: [SequelizeModule.forFeature([Nft])],
+    imports: [SequelizeModule.forFeature([Nft]),
+        RequestModule,
+       ],
     exports:[NftService]
 
 })

@@ -1,11 +1,7 @@
 import {HttpService} from '@nestjs/axios';
 import {
-    CanActivate,
-    ExecutionContext,
     Injectable,
-    UnauthorizedException,
 } from '@nestjs/common';
-import {Observable} from 'rxjs';
 
 @Injectable()
 export class RequestService {
@@ -14,7 +10,7 @@ export class RequestService {
     }
 
     findAll() {
-        // Replace with your Alchemy API key:
+       // Replace with your Alchemy API key:
         const apiKey = String(process.env.API_KEY);
         const baseURL = `https://eth-mainnet.alchemyapi.io/v2/${apiKey}/getNFTs/`;
 // Replace with the wallet address you want to query:
